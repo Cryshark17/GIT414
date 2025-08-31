@@ -24,5 +24,11 @@ The project demonstrates basic HTML structure and responsive CSS styling.
 3. Under "Branch," select `main` (or `master`) and `/root`.  
 4. Your site will be live at:  
 
+---
+
+##  Live Demo  
+Check it out here:  
+https://cryshark17.github.io/GIT414/
+
 
 -Crystal Harker
