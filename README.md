@@ -1,5 +1,9 @@
 # GIT414
 # GIT414/515 – Assignment 1
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue)](https://cryshark17.github.io/GIT414/)
+
+![Preview of Assignment 1](preview.png)
+
 
 This repository contains the starter files for **Assignment 1** in GIT414/515.  
 The project demonstrates basic HTML structure and responsive CSS styling.
