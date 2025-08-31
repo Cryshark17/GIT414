@@ -1,49 +1,149 @@
-/* Global */
-body { 
-  font-family: Arial, sans-serif; 
-  margin: 0; 
-  padding: 0; 
+/* ------------------------------------------
+   Base / Global
+------------------------------------------ */
+:root {
+  --bg: #f7f9fc;
+  --text: #0f172a;           /* dark slate */
+  --muted: #475569;          /* slate-500 */
+  --brand: #2563eb;          /* blue-600 */
+  --brand-700: #1d4ed8;
+  --card: #ffffff;
+  --ring: #94a3b8;           /* focus ring */
+  --radius: 12px;
 }
-header, nav, main, footer { 
-  padding: 1rem; 
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
 }
+
+/* Give all top-level sections a card look */
+header, nav, main, footer {
+  padding: 1rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.04),
+    0 6px 24px rgba(15,23,42,.06);
+}
+
+/* Space between sections */
+body > header,
+body > nav,
+body > main,
+body > footer { 
+  margin: 1rem;
+}
+
+/* Fluid type for h1 */
+h1 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: .3px;
+  font-size: clamp(1.6rem, 2.5vw + 1rem, 2.2rem);
+}
+
+/* Nav reset + styling */
 nav ul {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
-nav ul li {
-  display: inline;
-  margin-right: 1rem;
+
+/* Stack links on mobile */
+nav li { margin: .25rem 0; }
+
+nav a {
+  display: inline-block;
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  color: var(--brand);
+  background: rgba(37, 99, 235, .08);
+  transition: transform .15s ease, background-color .2s ease, color .2s ease;
 }
 
-/* Medium screens */
+nav a:hover {
+  transform: translateY(-1px);
+  background: rgba(37, 99, 235, .15);
+  color: var(--brand-700);
+}
+
+nav a:focus-visible {
+  outline: 3px solid transparent;
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+/* Main text polish */
+main p { margin: .5rem 0 0; }
+
+/* Footer */
+footer {
+  font-size: .95rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+
+img, video { max-width: 100%; height: auto; border-radius: calc(var(--radius) - 4px); }
+
+/* ------------------------------------------
+   Required Breakpoints from Assignment
+------------------------------------------ */
+
+/* Medium screens (>=600px) */
 @media only screen and (min-width: 600px) {
-  nav ul { 
-    display: flex; 
-    gap: 1rem; 
-  }
-  main {
-    background: yellow;
-  }
+  /* Make nav horizontal with gap */
+  nav ul { display: flex; gap: 1rem; align-items: center; }
+  nav li { margin: 0; }
+
+  /* Visual cue for the assignment */
+  main { background: yellow; }
 }
 
-/* Large screens */
+/* Large screens (>=900px) */
 @media only screen and (min-width: 900px) {
-  body { 
-    max-width: 900px; 
-    margin: auto; 
-  }
-  h1 { 
-    font-size: 3rem; 
-  }
-  main {
-    background: blue;
-  }
+  /* Center page and limit width */
+  body { max-width: 900px; margin: auto; }
+
+  h1 { font-size: 3rem; }
+
+  main { background: blue; color: white; }
+  main a { color: #e2e8f0; }
 }
 
-/* Extra large */
+/* Extra large (>=1200px) */
 @media only screen and (min-width: 1200px) {
-  main {
-    background: red;
+ 
+  main { background: red; color: white; }
+}
+
+
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Optional dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --card: #0f172a;
+    --ring: #38bdf8;
   }
+  nav a { background: rgba(59,130,246,.15); }
+  nav a:hover { background: rgba(59,130,246,.25); }
 }
